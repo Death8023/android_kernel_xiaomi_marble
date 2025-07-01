@@ -48,14 +48,14 @@ jobs:
           echo "CLANG_PATH=$(pwd)/clang/bin" >> $GITHUB_ENV
 
       # 步骤1: 应用SUSFS补丁
-      - name: Apply SUSFS patch
-        working-directory: ./kernel
-        run: |
-          echo "Applying SUSFS patch with fuzz=3..."
-          patch -p1 --fuzz=3 < 50_add_susfs_in_gki-*.patch || true
+      #- name: Apply SUSFS patch
+        #working-directory: ./kernel
+        #run: |
+          #echo "Applying SUSFS patch with fuzz=3..."
+          #patch -p1 --fuzz=3 < 50_add_susfs_in_gki-*.patch || true
           # 删除补丁文件
-          rm -f 50_add_susfs_in_gki-*.patch
-          echo "SUSFS patch applied and file removed"
+          #rm -f 50_add_susfs_in_gki-*.patch
+          #echo "SUSFS patch applied and file removed"
 
       - name: Build kernel
         working-directory: ./kernel
